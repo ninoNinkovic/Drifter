@@ -58,9 +58,10 @@ class SchemaBuilder implements BuilderInterface {
 
     private function getAttribute( $type )
     {
-        $type = explode( '(', $type )[ 1 ];
-        $type = explode( ')', $type )[ 0 ];
-
+        if( stristr($type, '(') > 0) {
+            $type = explode( '(', $type )[ 1 ];
+            $type = explode( ')', $type )[ 0 ];
+        }
         if ( strlen( $type ) < 1 ) {
             return;
         }

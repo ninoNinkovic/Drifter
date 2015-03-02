@@ -75,6 +75,10 @@ class Table {
     {
         preg_match( '#PRIMARY KEY \(`([\w\W0-9_-]+)`\)#', $schema, $matches );
 
+        if( ! isset($matches[1])){
+            return null;
+        }
+
         return $matches[ 1 ];
     }
 
