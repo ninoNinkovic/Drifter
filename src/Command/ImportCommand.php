@@ -4,6 +4,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Thyyppa\Drifter\Builder\MigrationBuilder;
 use Thyyppa\Drifter\Dump\Parser;
 use Thyyppa\Drifter\Loader\Loader;
 
@@ -34,6 +35,14 @@ class ImportCommand extends Command {
         $parser = new Parser();
 
         $tables = $parser->get_tables( $dump->data() );
+
+        foreach($tables as $table){
+
+            $migration = new MigrationBuilder($table);
+
+            die($migration->output());
+
+        }
 
         $output->writeln( '<info>Done!</info>' );
     }
