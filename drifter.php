@@ -2,7 +2,7 @@
 <?php require_once 'vendor/autoload.php';
 
 set_time_limit( 0 );
-ini_set( 'memory_limit', '4000M' );
+ini_set( 'memory_limit', '4G' );
 ini_set( 'default_charset', 'utf-8' );
 
 use Thyyppa\Drifter\Command\ImportCommand;
