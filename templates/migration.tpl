@@ -12,7 +12,7 @@ class {{migration}} extends Migration {
      */
     public function up()
     {
-    
+
         Schema::create('{{name}}', function(Blueprint $table)
         {
 

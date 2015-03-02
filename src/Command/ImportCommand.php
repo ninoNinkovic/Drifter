@@ -36,11 +36,11 @@ class ImportCommand extends Command {
 
         $tables = $parser->get_tables( $dump->data() );
 
-        foreach($tables as $table){
+        foreach ( $tables as $table ) {
 
-            $migration = new MigrationBuilder($table);
+            $migration = new MigrationBuilder( $table );
 
-            die($migration->output());
+            file_put_contents( base_dir() . '/output/' . $migration->migration_name . '.php', $migration->output() );
 
         }
 
